@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Color Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="header">Advanced Color Code Generator</h1>
+
+  <div class="input-section">
+    <input type="text" id="textInput" placeholder="Enter your text..." value="">
+
+    <div id="gradientControls">
+      <div class="gradient-endpoints">
+        <div class="color-control">
+          <label>Number of Colors:</label>
+          <input type="number" id="colorCount" value="2" min="2" max="10">
+        </div>
+        <div id="colorInputsContainer">
+          <!-- Color inputs will be generated here -->
+        </div>
+        <div class="color-control">
+          <label>Color Steps (Density):</label>
+          <input type="number" id="densityInput" value="10" min="2" max="50">
+        </div>
+      </div>
+
+      <div class="color-presets">
+        <button class="color-presets-toggle">
+          <span>Preset Colors ▼</span>
+        </button>
+        <div class="color-presets-content">
+          <input type="text" id="presetSearch" placeholder="Search presets..." class="search-input">
+          <div class="color-preset-grid" id="presetGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="styling-controls">
+        <div class="styling-enable-toggle">
+            <input type="checkbox" id="enableStylingCheckbox" checked>
+            <label for="enableStylingCheckbox">Enable Text Styling</label>
+        </div>
+        <div class="style-options" id="styleOptionsContainer">
+            <label class="style-toggle">
+                <input type="checkbox" id="styleBold" value="bold">
+                <span class="icon">B</span>
+            </label>
+            <label class="style-toggle">
+                <input type="checkbox" id="styleItalic" value="italic">
+                <span class="icon">I</span>
+            </label>
+            <label class="style-toggle">
+                <input type="checkbox" id="styleUnderline" value="underline">
+                <span class="icon">U</span>
+            </label>
+             <label class="style-toggle">
+                <input type="checkbox" id="styleStrikethrough" value="strikethrough">
+                <span class="icon">S</span>
+            </label>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Dedicated Preview Area -->
+  <div class="preview-section output-box">
+      <div class="label">Color Preview:</div>
+      <div class="output-content" id="colorPreviewContent">Enter text and select options...</div>
+  </div>
+
+  <div class="output-section">
+      <div class="label">Output Format:</div>
+      <div class="output-format-selector" id="outputFormatSelector">
+          <button class="format-btn active" data-format="html-hex">HTML (HEX)</button>
+          <button class="format-btn" data-format="html-rgb">HTML (RGB)</button>
+          <button class="format-btn" data-format="css">CSS + HTML</button>
+          <button class="format-btn" data-format="minecraft">Minecraft</button>
+          <button class="format-btn" data-format="discord">Discord (ANSI)</button>
+          <button class="format-btn" data-format="bbcode">BBCode</button>
+          <button class="format-btn" data-format="rgb-values">RGB Values</button> 
+      </div>
+
+      <div class="output-box">
+        <div class="label" id="outputLabel">Generated Code Output:</div>
+        <div class="output-content" id="outputContent">Select an output format...</div>
+        <button class="copy-btn" id="copyOutputBtn">Copy Output</button>
+      </div>
+  </div>
+
+
+</div>
+
+ <script type="importmap">
+      {
+        "imports": {
+           "d3": "https://cdn.jsdelivr.net/npm/d3@7/+esm"
+        }
+      }
+ </script>
+ <script type="module" src="script.js"></script>
+</body>
+</html>
